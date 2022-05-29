@@ -1,21 +1,37 @@
-import React from 'react';
-import { Form, Formik } from 'formik';
-import { connect } from 'react-redux';
-import { clearUserError } from '../../actions/actionCreator';
-import styles from './UpdateUserInfoForm.module.sass';
-import ImageUpload from '../InputComponents/ImageUpload/ImageUpload';
-import FormInput from '../FormInput/FormInput';
-import Schems from '../../validators/validationSchems';
-import Error from '../Error/Error';
+import React from "react";
+import { Form, Formik } from "formik";
+import { connect, useDispatch, useSelector } from "react-redux";
+import { clearUserError } from "../../actions/actionCreator";
+import styles from "./UpdateUserInfoForm.module.sass";
+import ImageUpload from "../InputComponents/ImageUpload/ImageUpload";
+import FormInput from "../FormInput/FormInput";
+import Schems from "../../validators/validationSchems";
+import Error from "../Error/Error";
 
 const UpdateUserInfoForm = (props) => {
-  const {
-    onSubmit, submitting, error, clearUserError,
-  } = props;
+  const { data, error } = useSelector((state) => state.userStore);
+
+  initialValues = {
+    firstName: data.firstName,
+    lastName: data.lastName,
+    displayName: data.displayName,
+  };
+
+  const { onSubmit, submitting, clearUserError, initialValues } = props;
   return (
-    <Formik onSubmit={onSubmit} initialValues={props.initialValues} validationSchema={Schems.UpdateUserSchema}>
+    <Formik
+      onSubmit={onSubmit}
+      initialValues={props.initialValues}
+      validationSchema={Schems.UpdateUserSchema}
+    >
       <Form className={styles.updateContainer}>
-        {error && <Error data={error.data} status={error.status} clearError={clearUserError} />}
+        {error && (
+          <Error
+            data={error.data}
+            status={error.status}
+            clearError={clearUserError}
+          />
+        )}
         <div className={styles.container}>
           <span className={styles.label}>First Name</span>
           <FormInput
@@ -74,20 +90,19 @@ const UpdateUserInfoForm = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  const { data, error } = state.userStore;
-  return {
-    error,
-    initialValues: {
-      firstName: data.firstName,
-      lastName: data.lastName,
-      displayName: data.displayName,
-    },
-  };
-};
+// const mapStateToProps = (state) => {
+//   const { data, error } = state.userStore;
+//   return {
+//     error,initialValues: {
+//       firstName: data.firstName,
+//       lastName: data.lastName,
+//       displayName: data.displayName,
+//     },
+//   };
+// };
 
 const mapDispatchToProps = (dispatch) => ({
   clearUserError: () => dispatch(clearUserError()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(UpdateUserInfoForm);
+export default connect(mapDispatchToProps)(UpdateUserInfoForm);
