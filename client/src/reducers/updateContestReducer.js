@@ -8,7 +8,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case ACTION.UPDATE_CONTEST_REQUEST: {
+    case ACTION.UPDATE_CONTEST_ACTION: {
       return {
         isFetching: true,
         error: null,

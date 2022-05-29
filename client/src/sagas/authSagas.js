@@ -4,7 +4,6 @@ import history from '../browserHistory';
 import * as restController from '../api/rest/restController';
 
 export function* loginSaga(action) {
-  yield put({ type: ACTION.AUTH_ACTION_REQUEST });
   try {
     yield restController.loginRequest(action.data);
     action.history.replace('/');
@@ -15,7 +14,7 @@ export function* loginSaga(action) {
 }
 
 export function* registerSaga(action) {
-  yield put({ type: ACTION.AUTH_ACTION_REQUEST });
+  //yield put({ type: ACTION.AUTH_ACTION_REQUEST });
   try {
     yield restController.registerRequest(action.data);
     action.history.replace('/');

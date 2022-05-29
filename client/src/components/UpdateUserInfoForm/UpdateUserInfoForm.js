@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Formik } from "formik";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { clearUserError } from "../../actions/actionCreator";
 import styles from "./UpdateUserInfoForm.module.sass";
 import ImageUpload from "../InputComponents/ImageUpload/ImageUpload";
@@ -11,13 +11,13 @@ import Error from "../Error/Error";
 const UpdateUserInfoForm = (props) => {
   const { data, error } = useSelector((state) => state.userStore);
 
+  const { onSubmit, submitting, clearUserError, initialValues } = props;
   initialValues = {
     firstName: data.firstName,
     lastName: data.lastName,
     displayName: data.displayName,
   };
-
-  const { onSubmit, submitting, clearUserError, initialValues } = props;
+  
   return (
     <Formik
       onSubmit={onSubmit}

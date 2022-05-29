@@ -1,10 +1,10 @@
-import { put } from 'redux-saga/effects';
-import ACTION from '../actions/actionTypes';
-import * as restController from '../api/rest/restController';
-import { controller } from '../api/ws/socketController';
+import { put } from "redux-saga/effects";
+import ACTION from "../actions/actionTypes";
+import * as restController from "../api/rest/restController";
+import { controller } from "../api/ws/socketController";
 
 export function* privateSaga(action) {
-  yield put({ type: ACTION.GET_USER_REQUEST });
+  //yield put({ type: ACTION.GET_USER_REQUEST });
   try {
     const { data } = yield restController.getUser();
     yield put({ type: ACTION.GET_USER_SUCCESS, data });
@@ -15,10 +15,10 @@ export function* privateSaga(action) {
 }
 
 export function* notAuthorizeSaga(action) {
-  yield put({ type: ACTION.GET_USER_REQUEST });
+  //yield put({ type: ACTION.GET_USER_REQUEST });
   try {
     const { data } = yield restController.getUser();
-    action.replace('/');
+    action.replace("/");
     yield put({ type: ACTION.GET_USER_SUCCESS, data });
   } catch (e) {
     yield put({ type: ACTION.GET_USER_ERROR, error: e });
@@ -36,7 +36,7 @@ export function* updateUserData(action) {
 }
 
 export function* headerRequest() {
-  yield put({ type: ACTION.GET_USER_REQUEST });
+  //yield put({ type: ACTION.GET_USER_REQUEST });
   try {
     const { data } = yield restController.getUser();
     yield put({ type: ACTION.GET_USER_SUCCESS, data });

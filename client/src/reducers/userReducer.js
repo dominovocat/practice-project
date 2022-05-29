@@ -8,7 +8,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case ACTION.GET_USER_REQUEST: {
+    case ACTION.GET_USER_ACTION: {
       return {
         ...state,
         isFetching: true,

@@ -18,7 +18,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case ACTION.GET_CONTEST_BY_ID_REQUEST: {
+    case ACTION.GET_CONTEST_BY_ID_ACTION: {
       return {
         ...state,
         isFetching: true,

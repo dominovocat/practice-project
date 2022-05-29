@@ -14,7 +14,7 @@ export default function (state = initialState, action) {
         focusOnElement: action.data,
       };
     }
-    case ACTION.PAYMENT_ACTION_REQUEST: {
+    case ACTION.PAYMENT_ACTION: {
       return {
         ...state,
         isFetching: true,
