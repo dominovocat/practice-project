@@ -1,5 +1,6 @@
 import React from "react";
-import { useDispatch, useSelector, bindActionCreators } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from "redux";
 import Rating from "react-rating";
 import { withRouter } from "react-router-dom";
 import isEqual from "lodash/isEqual";
@@ -20,12 +21,15 @@ const OfferBox = (props) => {
   const { id, role } = useSelector((state) => state.userStore.data);
   const { messagesPreview } = useSelector((state) => state.chatStore);
   const dispatch = useDispatch();
-  const actions = bindActionCreators( {
-    changeMark,
-    clearChangeMarkError,
-    goToExpandedDialog,
-    changeShowImage,
-  },dispatch);
+  const actions = bindActionCreators(
+    {
+      changeMark,
+      clearChangeMarkError,
+      goToExpandedDialog,
+      changeShowImage,
+    },
+    dispatch
+  );
 
   const findConversationInfo = () => {
     const participants = [id, props.data.User.id];
