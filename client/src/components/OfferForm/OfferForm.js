@@ -2,7 +2,7 @@ import React from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
 import { Formik, Form } from "formik";
 import CONTANTS from "../../constants";
-import { setOffer, clearAddOfferError } from "../../actions/actionCreator";
+import { clearAddOfferError } from "../../actions/actionCreator";
 import styles from "./OfferForm.module.sass";
 import ImageUpload from "../InputComponents/ImageUpload/ImageUpload";
 import FormInput from "../FormInput/FormInput";
@@ -96,14 +96,5 @@ const OfferForm = (props) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  setNewOffer: (data) => dispatch(setOffer(data)),
-  clearOfferError: () => dispatch(clearAddOfferError()),
-});
 
-// const mapStateToProps = (state) => {
-//   const { addOfferError } = state.contestByIdStore;
-//   return { addOfferError };
-// };
-
-export default connect(mapDispatchToProps)(OfferForm);
+export default connect(OfferForm);
