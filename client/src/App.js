@@ -19,6 +19,7 @@ import browserHistory from './browserHistory';
 import ChatContainer from './components/Chat/ChatComponents/ChatContainer/ChatContainer';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import NotAuthorizedRoute from './components/NotAuthorizedRoute/NotAuthorizedRoute';
+import Pricing from './pages/Pricing/Pricing';
 
 class App extends Component {
 
@@ -38,6 +39,7 @@ class App extends Component {
         />
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="pricing" component={Pricing}/>
           <NotAuthorizedRoute exact path="/login" component={LoginPage} />
           <NotAuthorizedRoute exact path="/registration" component={RegistrationPage} />
           <PrivateRoute exact path="/payment" component={Payment} />
