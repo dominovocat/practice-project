@@ -16,19 +16,28 @@ div{
   margin-left: auto;
 }
 .padding{
-  padding: 0px;
+  width: 100%;
+  padding: 50px 50px 50px;
+
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
-.card{
-  max-width: 350px;
-  max-height: 350px;
-  border: red 2px solid;
+.card{  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  height: 200px;
+  padding-top: 5px;
+  border: red 10px solid;
 }
+
 .h1Name{
   text-align: left;
+  margin: 10px;
+  margin-top: -15px;
 }
 .price{
   text-align: right;
