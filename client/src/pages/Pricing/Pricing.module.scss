@@ -1,8 +1,36 @@
 *{
   box-sizing: border-box;
 }
+div{
+  display: block;
+}
 
 .pricingMain{
   font-family: Arial, Helvetica, sans-serif;
   background-color: #fff;
+}
+.pricingContainer{
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.padding{
+  padding: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.card{
+  max-width: 350px;
+  max-height: 350px;
+  border: red 2px solid;
+}
+.h1Name{
+  text-align: left;
+}
+.price{
+  text-align: right;
+  width: 100%;
 }
